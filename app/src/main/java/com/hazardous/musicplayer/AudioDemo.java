@@ -6,6 +6,13 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import android.net.Uri;
+import android.content.ContentResolver;
+import android.database.Cursor;
+import android.widget.ListView;
 
 
 public class AudioDemo extends Activity implements MediaPlayer.OnCompletionListener {
@@ -14,17 +21,28 @@ public class AudioDemo extends Activity implements MediaPlayer.OnCompletionListe
     private ImageButton pause;
     private ImageButton stop;
     private MediaPlayer mp;
+    private ArrayList<Songs> songsList;
+    private ListView songsView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        songsView = (ListView)findViewById(R.id.song_list);
+        songsList = new ArrayList<Songs>();
+        getSongList();
+        Collections.sort(songsList, new Comparator<Songs>() {
+            public int compare(Songs a, Songs b) {
+                return a.getTitle().compareTo(b.getTitle());
+            }
+        });
+        SongAdapter songAdt = new SongAdapter(this, songsList);
+        songsView.setAdapter(songAdt);
+        //play = (ImageButton)findViewById(R.id.play);
+        //pause = (ImageButton)findViewById(R.id.pause);
+        //stop = (ImageButton)findViewById(R.id.stop);
 
-        play = (ImageButton)findViewById(R.id.play);
-        pause = (ImageButton)findViewById(R.id.pause);
-        stop = (ImageButton)findViewById(R.id.stop);
-
-        play.setOnClickListener(new View.OnClickListener() {
+        /*play.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 play();
@@ -42,13 +60,37 @@ public class AudioDemo extends Activity implements MediaPlayer.OnCompletionListe
             @Override
             public void onClick(View view) {
                 stop();
-            }
-        });
+
+        });*/
 
         setup();
 
     }
 
+    public void getSongList()
+    {
+        ContentResolver musicResolver = getContentResolver();
+        Uri musicUri = android.provider.MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
+        Cursor musicCursor = musicResolver.query(musicUri, null, null, null, null);
+        if(musicCursor!=null && musicCursor.moveToFirst()){
+            //get columns
+            int titleColumn = musicCursor.getColumnIndex
+                    (android.provider.MediaStore.Audio.Media.TITLE);
+            int idColumn = musicCursor.getColumnIndex
+                    (android.provider.MediaStore.Audio.Media._ID);
+            int artistColumn = musicCursor.getColumnIndex
+                    (android.provider.MediaStore.Audio.Media.ARTIST);
+            //add songs to list
+            do
+            {
+                long thisId = musicCursor.getLong(idColumn);
+                String thisTitle = musicCursor.getString(titleColumn);
+                String thisArtist = musicCursor.getString(artistColumn);
+                songsList.add(new Songs(thisId, thisTitle, thisArtist));
+            }
+            while (musicCursor.moveToNext());
+        }
+    }
     @Override
     protected void onDestroy() {
         super.onDestroy();
