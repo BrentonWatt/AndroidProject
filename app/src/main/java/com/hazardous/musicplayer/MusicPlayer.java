@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,6 +13,8 @@ import android.widget.ImageButton;
 
 
 public class MusicPlayer extends Activity implements MediaPlayer.OnCompletionListener{
+
+    public static final String TAG = "MusicPlayer";
 
     private ImageButton play;
     private ImageButton pause;
@@ -35,6 +38,7 @@ public class MusicPlayer extends Activity implements MediaPlayer.OnCompletionLis
             @Override
             public void onClick(View view) {
                 play();
+                Log.d(TAG, "onClick - play method");
             }
         });
 
@@ -42,6 +46,7 @@ public class MusicPlayer extends Activity implements MediaPlayer.OnCompletionLis
             @Override
             public void onClick(View view) {
                 pause();
+                Log.d(TAG, "onClick - pause method");
             }
         });
 
@@ -49,6 +54,7 @@ public class MusicPlayer extends Activity implements MediaPlayer.OnCompletionLis
             @Override
             public void onClick(View view) {
                 stop();
+                Log.d(TAG, "onClick - stop method");
             }
         });
 
@@ -56,6 +62,7 @@ public class MusicPlayer extends Activity implements MediaPlayer.OnCompletionLis
             @Override
             public void onClick(View view) {
                 previousSong();
+                Log.d(TAG, "onClick - previousSong method");
             }
         });
 
@@ -63,6 +70,7 @@ public class MusicPlayer extends Activity implements MediaPlayer.OnCompletionLis
             @Override
             public void onClick(View view) {
                 nextSong();
+                Log.d(TAG, "onClick - nextSong method");
             }
         });
 
@@ -83,10 +91,12 @@ public class MusicPlayer extends Activity implements MediaPlayer.OnCompletionLis
     @Override
     public void onCompletion(MediaPlayer mp){
         stop();
+        Log.d(TAG, "onCompletion");
     }
 
     private void play() {
         mp.start();
+        Log.d(TAG, "play() method");
 
         play.setEnabled(false);
         pause.setEnabled(true);
@@ -95,11 +105,15 @@ public class MusicPlayer extends Activity implements MediaPlayer.OnCompletionLis
 
     private void stop(){
         mp.stop();
+        Log.d(TAG, "stop() method");
+
         pause.setEnabled(false);
         stop.setEnabled(false);
 
         try{
-            mp.prepare();
+            mp.prepareAsync(); //working in a different thread
+            Log.d(TAG, "prepareAsync");
+
             mp.seekTo(0);
             play.setEnabled(true);
         }
