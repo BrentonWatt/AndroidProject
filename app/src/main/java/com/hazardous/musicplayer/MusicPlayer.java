@@ -5,6 +5,8 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 
@@ -14,6 +16,8 @@ public class MusicPlayer extends Activity implements MediaPlayer.OnCompletionLis
     private ImageButton play;
     private ImageButton pause;
     private ImageButton stop;
+    private ImageButton nextSong;
+    private ImageButton previousSong;
     private MediaPlayer mp;
 
     @Override
@@ -24,6 +28,8 @@ public class MusicPlayer extends Activity implements MediaPlayer.OnCompletionLis
         play = (ImageButton)findViewById(R.id.play);
         pause = (ImageButton)findViewById(R.id.pause);
         stop = (ImageButton)findViewById(R.id.stop);
+        nextSong = (ImageButton)findViewById(R.id.nextSong);
+        previousSong = (ImageButton)findViewById(R.id.previousSong);
 
         play.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,6 +51,22 @@ public class MusicPlayer extends Activity implements MediaPlayer.OnCompletionLis
                 stop();
             }
         });
+
+        previousSong.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                previousSong();
+            }
+        });
+
+        nextSong.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                nextSong();
+            }
+        });
+
+
 
         setup();
     }
@@ -95,6 +117,14 @@ public class MusicPlayer extends Activity implements MediaPlayer.OnCompletionLis
         stop.setEnabled(true);
     }
 
+    private void nextSong() {
+
+    }
+
+    private void previousSong() {
+
+    }
+
     private void loadClip() {
         try {
             mp=MediaPlayer.create(this, R.raw.clip);
@@ -123,10 +153,12 @@ public class MusicPlayer extends Activity implements MediaPlayer.OnCompletionLis
     }
 
     public void showSongList(View view) {
-        startActivity(new Intent(this, AudioDemo.class));
+        Intent i= new Intent(this, AudioDemo.class);
+        i.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        startActivity(i);
     }
 
-    /*@Override
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_music_player, menu);
@@ -148,7 +180,7 @@ public class MusicPlayer extends Activity implements MediaPlayer.OnCompletionLis
         }
 
         return super.onOptionsItemSelected(item);
-    }*/
+    }
 
 
 }

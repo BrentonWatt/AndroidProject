@@ -1,13 +1,14 @@
 package com.hazardous.musicplayer;
 
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import java.util.ArrayList;
-import android.content.Context;
-import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 /**
  * Created by Brenton on 6/24/2015.
  */

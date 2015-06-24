@@ -82,4 +82,52 @@
         android:id="@+id/btnList"
         android:onClick="showSongList" />
 
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/nextSong"
+            android:paddingRight="4dip"
+            android:src="@android:drawable/ic_media_next" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center_vertical"
+            android:layout_gravity="center_vertical"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#FFF"
+            android:text="Next Song"
+             />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/previousSong"
+            android:adjustViewBounds="true"
+            android:src="@android:drawable/ic_media_previous"
+            android:paddingRight="4dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Previous Song"
+            android:id="@+id/textView"
+            android:singleLine="true"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:textAppearance="@android:style/TextAppearance.Large"
+            android:textColor="#FFF" />
+    </LinearLayout>
+
 </LinearLayout>
