@@ -110,8 +110,8 @@ public class MusicPlayer extends Activity implements MediaPlayer.OnCompletionLis
         pause.setEnabled(false);
         stop.setEnabled(false);
         play.setEnabled(true);
-       /* try{
-            mp.prepareAsync(); //working in a different thread
+       try{
+            mp.prepare(); //working in a different thread
             Log.d(TAG, "prepareAsync");
 
             mp.seekTo(0);
@@ -119,7 +119,7 @@ public class MusicPlayer extends Activity implements MediaPlayer.OnCompletionLis
         }
         catch (Throwable t){
             goBlooey(t);
-        }*/
+        }
 
     }
 
