@@ -1,20 +1,23 @@
-package com.hazardous.musicplayer;
+package com.hazardous.musicplayer.activities;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.hazardous.musicplayer.fragments.AudioDemo;
+import com.hazardous.musicplayer.R;
 
-public class MusicPlayer extends Activity implements MediaPlayer.OnCompletionListener{
 
-    public static final String TAG = "MusicPlayer";
+public class MusicPlayerActivity extends AppCompatActivity implements MediaPlayer.OnCompletionListener{
+
+    public static final String TAG = "MusicPlayerActivity";
 
     private ImageButton play;
     private ImageButton pause;
@@ -74,8 +77,6 @@ public class MusicPlayer extends Activity implements MediaPlayer.OnCompletionLis
             }
         });
 
-
-
         setup();
     }
 
@@ -110,7 +111,7 @@ public class MusicPlayer extends Activity implements MediaPlayer.OnCompletionLis
         pause.setEnabled(false);
         stop.setEnabled(false);
         play.setEnabled(true);
-       /* try{
+        try{
             mp.prepareAsync(); //working in a different thread
             Log.d(TAG, "prepareAsync");
 
@@ -119,7 +120,7 @@ public class MusicPlayer extends Activity implements MediaPlayer.OnCompletionLis
         }
         catch (Throwable t){
             goBlooey(t);
-        }*/
+        }
 
     }
 

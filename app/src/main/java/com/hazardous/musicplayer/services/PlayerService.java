@@ -1,4 +1,4 @@
-package com.hazardous.musicplayer;
+package com.hazardous.musicplayer.services;
 
 import android.app.Service;
 import android.content.Intent;

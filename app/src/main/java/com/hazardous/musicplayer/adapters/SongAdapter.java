@@ -1,4 +1,4 @@
-package com.hazardous.musicplayer;
+package com.hazardous.musicplayer.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,6 +7,9 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.hazardous.musicplayer.R;
+import com.hazardous.musicplayer.Songs;
 
 import java.util.ArrayList;
 /**

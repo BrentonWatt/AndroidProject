@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.hazardous.musicplayer" >
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+
         <activity
-            android:name=".AudioDemo"
+            android:name=".fragments.AudioDemo"
             android:label="@string/title_activity_main"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".MusicPlayer"
+            android:name=".activities.MusicPlayerActivity"
             android:label="@string/title_activity_music_player"
             android:launchMode="singleTop" >
             <intent-filter>
@@ -24,7 +27,7 @@
         </activity>
 
         <service
-            android:name=".PlayerService"
+            android:name=".services.PlayerService"
             android:enabled="true"
             android:exported="true" >
         </service>

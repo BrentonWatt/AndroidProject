@@ -1,4 +1,4 @@
-package com.hazardous.musicplayer;
+package com.hazardous.musicplayer.fragments;
 
 import android.app.Activity;
 import android.content.ContentResolver;
@@ -6,6 +6,10 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.widget.ListView;
+
+import com.hazardous.musicplayer.R;
+import com.hazardous.musicplayer.Songs;
+import com.hazardous.musicplayer.adapters.SongAdapter;
 
 import java.util.ArrayList;
 import java.util.Collections;
