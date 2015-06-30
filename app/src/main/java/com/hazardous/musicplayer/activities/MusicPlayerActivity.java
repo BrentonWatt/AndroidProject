@@ -111,6 +111,8 @@ public class MusicPlayerActivity extends AppCompatActivity implements MediaPlaye
         pause.setEnabled(false);
         stop.setEnabled(false);
         play.setEnabled(true);
+        nextSong.setEnabled(false);
+        previousSong.setEnabled(false);
         try{
             mp.prepareAsync(); //working in a different thread
             Log.d(TAG, "prepareAsync");
@@ -155,6 +157,8 @@ public class MusicPlayerActivity extends AppCompatActivity implements MediaPlaye
         play.setEnabled(true);
         pause.setEnabled(false);
         stop.setEnabled(false);
+        nextSong.setEnabled(true);
+        previousSong.setEnabled(true);
     }
 
     private void goBlooey(Throwable throwable) {
@@ -167,7 +171,7 @@ public class MusicPlayerActivity extends AppCompatActivity implements MediaPlaye
 
     }
 
-    public void showSongList(View view) {
+    public void showSongList() {
         Intent i= new Intent(this, AudioDemo.class);
         i.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         startActivity(i);
@@ -191,6 +195,10 @@ public class MusicPlayerActivity extends AppCompatActivity implements MediaPlaye
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            return true;
+        }
+        if (id == R.id.action_songList) {
+            showSongList();
             return true;
         }
 

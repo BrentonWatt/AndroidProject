@@ -75,6 +75,13 @@
             />
     </LinearLayout>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Song List"
+        android:id="@+id/btnList"
+        android:onClick="showSongList" />
+
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
