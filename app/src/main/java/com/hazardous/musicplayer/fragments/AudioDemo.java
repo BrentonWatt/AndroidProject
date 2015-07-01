@@ -1,10 +1,13 @@
 package com.hazardous.musicplayer.fragments;
 
-import android.app.Activity;
 import android.content.ContentResolver;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
+import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ListView;
 
 import com.hazardous.musicplayer.R;
@@ -14,7 +17,7 @@ import com.hazardous.musicplayer.adapters.SongAdapter;
 import java.util.ArrayList;
 
 
-public class AudioDemo extends Activity  {
+public class AudioDemo extends AppCompatActivity  {
 
 
     private ArrayList<Songs> songsList;
@@ -24,6 +27,7 @@ public class AudioDemo extends Activity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.audio_demo);
+//        getActionBar().setDisplayHomeAsUpEnabled(true);
         songsView = (ListView)findViewById(R.id.song_list);
         songsList = new ArrayList<>();
         getSongList();
@@ -35,7 +39,7 @@ public class AudioDemo extends Activity  {
         SongAdapter songAdt = new SongAdapter(this, songsList);
         songsView.setAdapter(songAdt);
 
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+
 
 
     }
@@ -65,10 +69,10 @@ public class AudioDemo extends Activity  {
         }
     }
 
-    /*@Override
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_audio_demo, menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
@@ -80,12 +84,13 @@ public class AudioDemo extends Activity  {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.home) {
+            NavUtils.navigateUpFromSameTask(this);
             return true;
         }
 
         return super.onOptionsItemSelected(item);
-    }*/
+    }
 
 
 }

@@ -5,7 +5,8 @@
     <item android:id="@+id/action_settings" android:title="@string/action_settings"
         android:orderInCategory="100" app:showAsAction="never" />
     <item android:id="@+id/action_songList" android:title="@string/music_list"
-        app:showAsAction="never"/>
+        app:showAsAction="ifRoom|collapseActionView"
+        android:icon="@android:drawable/ic_media_play"/>
     <item android:id="@+id/songInfo" android:title="Song Information"
         app:showAsAction="never"/>
 </menu>

@@ -17,7 +17,8 @@
             android:name=".fragments.AudioDemo"
             android:label="@string/title_activity_main"
             android:screenOrientation="portrait"
-            android:parentActivityName=".activities.MusicPlayerActivity">
+            android:parentActivityName=".activities.MusicPlayerActivity"
+            android:icon="@android:drawable/ic_media_play">
         </activity>
         <activity
             android:name=".activities.MusicPlayerActivity"
