@@ -12,8 +12,6 @@ import com.hazardous.musicplayer.Songs;
 import com.hazardous.musicplayer.adapters.SongAdapter;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 
 
 public class AudioDemo extends Activity  {
@@ -25,17 +23,19 @@ public class AudioDemo extends Activity  {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.audio_demo);
         songsView = (ListView)findViewById(R.id.song_list);
         songsList = new ArrayList<>();
         getSongList();
-        Collections.sort(songsList, new Comparator<Songs>() {
+        /*Collections.sort(songsList, new Comparator<Songs>() {
             public int compare(Songs a, Songs b) {
                 return a.getTitle().compareTo(b.getTitle());
             }
-        });
+        });*/
         SongAdapter songAdt = new SongAdapter(this, songsList);
         songsView.setAdapter(songAdt);
+
+        getActionBar().setDisplayHomeAsUpEnabled(true);
 
 
     }

@@ -12,13 +12,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Artist:"
-            android:id="@+id/artistLabel" />
+            android:id="@+id/artistLabel"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/artistText"
-            android:layout_column="1" />
+            android:layout_column="1"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
     </TableRow>
 
     <TableRow
@@ -30,13 +32,15 @@
             android:layout_height="wrap_content"
             android:text="Song:"
             android:id="@+id/songLabel"
-            android:layout_column="0" />
+            android:layout_column="0"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/songText"
-            android:layout_column="1" />
+            android:layout_column="1"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
     </TableRow>
 
 </TableLayout>

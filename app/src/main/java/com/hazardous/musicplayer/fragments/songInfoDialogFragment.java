@@ -21,12 +21,14 @@ public class songInfoDialogFragment extends DialogFragment {
         LayoutInflater layoutInflater = getActivity().getLayoutInflater();
 
         builder.setView(layoutInflater.inflate(R.layout.dialog_songinfo, null));
+        builder.setTitle("Song Information");
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 songInfoDialogFragment.this.getDialog().cancel();
             }
         });
+
 
         return builder.create();
     }

@@ -2,26 +2,25 @@ package com.hazardous.musicplayer.activities;
 
 import android.app.AlertDialog;
 import android.app.DialogFragment;
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
+import android.content.ContentResolver;
 import android.content.Intent;
+import android.database.Cursor;
+import android.media.MediaMetadataRetriever;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.hazardous.musicplayer.R;
 import com.hazardous.musicplayer.fragments.AudioDemo;
 import com.hazardous.musicplayer.fragments.songInfoDialogFragment;
-
-import java.io.FileDescriptor;
-import java.io.PrintWriter;
 
 
 public class MusicPlayerActivity extends AppCompatActivity implements MediaPlayer.OnCompletionListener{
@@ -213,107 +212,25 @@ public class MusicPlayerActivity extends AppCompatActivity implements MediaPlaye
             return true;
         }
         if (id == R.id.songInfo) {
-
-            FragmentManager fragmentManager = new FragmentManager() {
-                @NonNull
-                @Override
-                public FragmentTransaction beginTransaction() {
-                    return null;
-                }
-
-                @Override
-                public boolean executePendingTransactions() {
-                    return false;
-                }
-
-                @Override
-                public Fragment findFragmentById(int id) {
-                    return null;
-                }
-
-                @Override
-                public Fragment findFragmentByTag(String tag) {
-                    return null;
-                }
-
-                @Override
-                public void popBackStack() {
-
-                }
-
-                @Override
-                public boolean popBackStackImmediate() {
-                    return false;
-                }
-
-                @Override
-                public void popBackStack(String name, int flags) {
-
-                }
-
-                @Override
-                public boolean popBackStackImmediate(String name, int flags) {
-                    return false;
-                }
-
-                @Override
-                public void popBackStack(int id, int flags) {
-
-                }
-
-                @Override
-                public boolean popBackStackImmediate(int id, int flags) {
-                    return false;
-                }
-
-                @Override
-                public int getBackStackEntryCount() {
-                    return 0;
-                }
-
-                @Override
-                public BackStackEntry getBackStackEntryAt(int index) {
-                    return null;
-                }
-
-                @Override
-                public void addOnBackStackChangedListener(OnBackStackChangedListener listener) {
-
-                }
-
-                @Override
-                public void removeOnBackStackChangedListener(OnBackStackChangedListener listener) {
-
-                }
-
-                @Override
-                public void putFragment(Bundle bundle, String key, Fragment fragment) {
-
-                }
-
-                @Override
-                public Fragment getFragment(Bundle bundle, String key) {
-                    return null;
-                }
-
-                @Override
-                public Fragment.SavedState saveFragmentInstanceState(Fragment f) {
-                    return null;
-                }
-
-                @Override
-                public boolean isDestroyed() {
-                    return false;
-                }
-
-                @Override
-                public void dump(String prefix, FileDescriptor fd, PrintWriter writer, String[] args) {
-
-                }
-            };
-
             DialogFragment df = new songInfoDialogFragment();
-            df.show(fragmentManager, TAG);
+            TextView artT = (TextView)findViewById(R.id.artistText);
+            TextView artS = (TextView)findViewById(R.id.songText);
+            MediaMetadataRetriever mediaMetadataRetriever = null;
+            ContentResolver contentResolver = this.getContentResolver();
+            Uri song = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
+            Cursor musicCursor = contentResolver.query(song, null, null, null, null);
+            try{
+
+                mediaMetadataRetriever.setDataSource(this, song);
+                artT.setText(mediaMetadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_ARTIST));
+                artS.setText(mediaMetadataRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE));
+            }
+            catch(Throwable throwable){
+                goBlooey(throwable);
+            }
+
+
+            df.show(getFragmentManager(), TAG);
 
             return true;
         }
