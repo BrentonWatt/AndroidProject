@@ -119,15 +119,11 @@ public class MusicPlayerActivity extends AppCompatActivity implements MediaPlaye
         pause.setEnabled(false);
         stop.setEnabled(false);
         play.setEnabled(true);
-<<<<<<< HEAD:app/src/main/java/com/hazardous/musicplayer/activities/MusicPlayerActivity.java
         nextSong.setEnabled(false);
         previousSong.setEnabled(false);
         try{
             mp.prepareAsync(); //working in a different thread
-=======
-       try{
-            mp.prepare(); //working in a different thread
->>>>>>> cd4f257b1c7e495efb1a7adf5cf855328639c61e:app/src/main/java/com/hazardous/musicplayer/MusicPlayer.java
+
             Log.d(TAG, "prepareAsync");
 
             mp.seekTo(0);
