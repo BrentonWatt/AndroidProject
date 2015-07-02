@@ -86,7 +86,11 @@
       <excludeFolder url="file://$MODULE_DIR$/build/outputs" />
       <excludeFolder url="file://$MODULE_DIR$/build/tmp" />
     </content>
+<<<<<<< HEAD
     <orderEntry type="jdk" jdkName="Android API 22 Platform (2)" jdkType="Android SDK" />
+=======
+    <orderEntry type="jdk" jdkName="Android API 22 Platform" jdkType="Android SDK" />
+>>>>>>> cd4f257b1c7e495efb1a7adf5cf855328639c61e
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="appcompat-v7-22.1.0" level="project" />
     <orderEntry type="library" exported="" name="support-annotations-22.1.0" level="project" />

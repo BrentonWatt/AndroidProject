@@ -7,6 +7,20 @@
         <option name="BUILDABLE" value="false" />
       </configuration>
     </facet>
+<<<<<<< HEAD
+=======
+    <facet type="java-gradle" name="Java-Gradle">
+      <configuration>
+        <option name="BUILD_FOLDER_PATH" value="$MODULE_DIR$/build" />
+      </configuration>
+    </facet>
+    <facet type="java-gradle" name="Java-Gradle">
+      <configuration>
+        <option name="BUILD_FOLDER_PATH" value="$MODULE_DIR$/build" />
+        <option name="BUILDABLE" value="false" />
+      </configuration>
+    </facet>
+>>>>>>> cd4f257b1c7e495efb1a7adf5cf855328639c61e
   </component>
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />

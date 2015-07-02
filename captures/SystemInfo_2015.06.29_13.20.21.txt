@@ -1,0 +1,39 @@
+TASK com.hazardous.musicplayer id=3
+  ACTIVITY com.hazardous.musicplayer/.activities.MusicPlayerActivity 416dca00 pid=647
+    Local FragmentActivity 414b2bf0 State:
+      mCreated=truemResumed=true mStopped=false mReallyStopped=false
+      mLoadersStarted=true
+    FragmentManager misc state:
+      mActivity=com.hazardous.musicplayer.activities.MusicPlayerActivity@414b2bf0
+      mContainer=android.support.v4.app.FragmentActivity$2@414b4988
+      mCurState=5 mStateSaved=false mDestroyed=false
+    View Hierarchy:
+      com.android.internal.policy.impl.PhoneWindow$DecorView{414bc120 V.E..... ... 0,0-768,1184}
+        android.widget.LinearLayout{414bd7a8 V.E..... ... 0,0-768,1184}
+          android.view.ViewStub{414bec00 G.E..... ... 0,0-0,0 #1020314}
+          android.widget.FrameLayout{414bf038 V.E..... ... 0,50-768,1184}
+            android.support.v7.internal.widget.ActionBarOverlayLayout{414c3ae8 V.ED.... ... 0,0-768,1134 #7f0d003e app:id/decor_content_parent}
+              android.support.v7.internal.widget.NativeActionModeAwareLayout{414c7510 V.ED.... ... 0,112-768,1134 #1020002 android:id/content}
+                android.widget.LinearLayout{414e91c8 V.E..... ... 0,0-768,1022}
+                  android.widget.LinearLayout{414e9558 V.E..... ... 32,32-736,144}
+                    android.widget.ImageButton{414e9a60 VF.D..C. ... 8,8-104,104 #7f0d0050 app:id/play}
+                    android.support.v7.widget.AppCompatTextView{414ee928 V.ED.... ... 104,8-696,104}
+                  android.widget.LinearLayout{414ef258 V.E..... ... 32,144-736,256}
+                    android.widget.ImageButton{414ef5e8 VFED..C. ... 8,8-104,104 #7f0d0051 app:id/pause}
+                    android.support.v7.widget.AppCompatTextView{414f40c0 V.ED.... ... 104,8-696,104}
+                  android.widget.LinearLayout{414f4570 V.E..... ... 32,256-736,368}
+                    android.widget.ImageButton{414f4900 VFED..C. ... 8,8-104,104 #7f0d0052 app:id/stop}
+                    android.support.v7.widget.AppCompatTextView{414f9570 V.ED.... ... 104,8-696,104}
+                  android.support.v7.widget.AppCompatButton{414fa770 VFED..C. ... 32,368-219,464 #7f0d0053 app:id/btnList}
+                  android.widget.LinearLayout{414fc2c8 V.E..... ... 32,464-736,560}
+                    android.widget.ImageButton{414fc658 VFED..C. ... 0,0-96,96 #7f0d0054 app:id/nextSong}
+                    android.support.v7.widget.AppCompatTextView{41501130 V.ED.... ... 96,0-704,96}
+                  android.widget.LinearLayout{415015e8 V.E..... ... 32,560-736,656}
+                    android.widget.ImageButton{41501978 VFED..C. ... 0,0-96,96 #7f0d0055 app:id/previousSong}
+                    android.support.v7.widget.AppCompatTextView{414bd128 V.ED.... ... 96,18-381,77 #7f0d0056 app:id/textView}
+              android.support.v7.internal.widget.ActionBarContainer{414c81b0 V.ED.... ... 0,0-768,112 #7f0d003f app:id/action_bar_container}
+                android.support.v7.widget.Toolbar{414d1ce8 V.E..... ... 0,0-768,112 #7f0d0040 app:id/action_bar}
+                  android.widget.TextView{414e4be8 V.ED.... ... 32,29-263,83}
+                  android.support.v7.widget.ActionMenuView{414b1790 V.E..... ... 696,0-768,112}
+                    android.support.v7.widget.ActionMenuPresenter$OverflowMenuButton{414cd7e8 VFED..C. ... 0,8-72,104}
+                android.support.v7.internal.widget.ActionBarContextView{414df0a8 G.E..... ... 0,0-0,0 #7f0d0041 app:id/action_context_bar}
