@@ -1,9 +1,13 @@
 <resources>
     <string name="app_name">Music Player</string>
-    <string name="title_activity_main">Song List</string>
+    <string name="title_activity_main">Hazardous Music Player</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_music_player">Music Player</string>
     <string name="music_list">Music List</string>
     <string name="title_activity_music_list">MusicList</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="playButtonFragment">playButtonFragment</string>
 </resources>

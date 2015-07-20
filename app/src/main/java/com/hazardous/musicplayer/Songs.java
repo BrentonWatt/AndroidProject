@@ -5,28 +5,29 @@ package com.hazardous.musicplayer;
  */
 public class Songs
 {
-    private long id;
-    private String name; //Name of the song
-    private String artist; //Name of the artist
+    private long _ID;
+    private String mName; //Name of the song
+    private String mArtist; //Name of the mArtist
+    private String mAlbum;
 
     public Songs(long songsID, String songsName, String songsArtist)
     {
-        id = songsID;
-        name = songsName;
-        artist = songsArtist;
+        _ID = songsID;
+        mName = songsName;
+        mArtist = songsArtist;
     }
 
     public long getID()
     {
-        return id;
+        return _ID;
     }
 
     public String getTitle()
     {
-        return name;
+        return mName;
     }
     public String getArtist()
     {
-        return artist;
+        return mArtist;
     }
 }
