@@ -153,7 +153,7 @@ public class MusicPlayerActivity extends AppCompatActivity implements MediaPlaye
 
     private void loadClip() {
         try {
-            mp=MediaPlayer.create(this, R.raw.clip);
+            mp=MediaPlayer.create(this, R.raw.sample_song);
             mp.setOnCompletionListener(this);
 
         } catch (Throwable throwable) {
