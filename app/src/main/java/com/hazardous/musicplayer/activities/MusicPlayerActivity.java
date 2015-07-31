@@ -14,7 +14,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -22,30 +21,35 @@ import com.hazardous.musicplayer.R;
 import com.hazardous.musicplayer.fragments.AudioDemo;
 import com.hazardous.musicplayer.fragments.songInfoDialogFragment;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 
 public class MusicPlayerActivity extends AppCompatActivity implements MediaPlayer.OnCompletionListener{
 
     public static final String TAG = "MusicPlayerActivity";
 
-    private ImageButton play;
-    private ImageButton pause;
-    private ImageButton stop;
-    private ImageButton nextSong;
-    private ImageButton previousSong;
+    @Bind(R.id.play) ImageButton play;
+    @Bind(R.id.pause) ImageButton pause;
+    @Bind(R.id.stop) ImageButton stop;
+    @Bind(R.id.nextSong) ImageButton nextSong;
+    @Bind(R.id.previousSong) ImageButton previousSong;
     private MediaPlayer mp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ButterKnife.bind(this);
         setContentView(R.layout.activity_music_player);
 
-        play = (ImageButton)findViewById(R.id.play);
+       /* play = (ImageButton)findViewById(R.id.play);
         pause = (ImageButton)findViewById(R.id.pause);
         stop = (ImageButton)findViewById(R.id.stop);
         nextSong = (ImageButton)findViewById(R.id.nextSong);
-        previousSong = (ImageButton)findViewById(R.id.previousSong);
+        previousSong = (ImageButton)findViewById(R.id.previousSong)*/;
 
-        play.setOnClickListener(new View.OnClickListener() {
+        /*play.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 play();
@@ -83,7 +87,7 @@ public class MusicPlayerActivity extends AppCompatActivity implements MediaPlaye
                 nextSong();
                 Log.d(TAG, "onClick - nextSong method");
             }
-        });
+        });*/
 
         setup();
     }
@@ -103,7 +107,7 @@ public class MusicPlayerActivity extends AppCompatActivity implements MediaPlaye
         Log.d(TAG, "onCompletion");
     }
 
-    private void play() {
+    @OnClick(R.id.play)public void play() {
         mp.start();
         Log.d(TAG, "play() method");
 
@@ -112,7 +116,7 @@ public class MusicPlayerActivity extends AppCompatActivity implements MediaPlaye
         stop.setEnabled(true);
     }
 
-    private void stop(){
+    @OnClick(R.id.stop)public void stop(){
         mp.stop();
         Log.d(TAG, "stop() method");
 
@@ -135,7 +139,7 @@ public class MusicPlayerActivity extends AppCompatActivity implements MediaPlaye
 
     }
 
-    private void pause() {
+    @OnClick(R.id.pause)public void pause() {
         mp.pause();
 
         play.setEnabled(true);

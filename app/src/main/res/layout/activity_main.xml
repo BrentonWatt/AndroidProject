@@ -17,7 +17,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="songName" />
+        tools:text="songName" />
 
     <ImageView
         android:id="@+id/mp3Image"
@@ -33,7 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="songDuration" />
+        tools:text="songDuration" />
 
     <com.rey.material.widget.Slider
         android:id="@+id/seekBar"

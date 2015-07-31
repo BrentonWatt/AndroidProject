@@ -13,7 +13,7 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -34,5 +34,6 @@ dependencies {
     compile 'com.jakewharton:butterknife:7.0.1'
     //    MD library project
     compile 'com.github.rey5137:material:1.1.1'
-
+    //Facebook stetho
+    compile 'com.facebook.stetho:stetho:1.1.1'
 }
