@@ -10,10 +10,13 @@ import android.os.IBinder;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.hazardous.musicplayer.utils.MusicRetriever;
+
 public class MusicService extends Service {
 
     MediaPlayer mMediaPlayer;
     MediaScannerConnection mMediaScannerConnection;
+    MusicRetriever mMusicRetriever;
 
     public static final String TAG = "MusicService";
 
@@ -32,8 +35,10 @@ public class MusicService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
+        mMusicRetriever = new MusicRetriever(getContentResolver());
         try {
             mMediaPlayer.prepare();
+            mMusicRetriever.prepare();
             mMediaScannerConnection.connect();
             if (mMediaScannerConnection.isConnected()) {
                 sendBroadcast(new Intent("android.intent.action.MEDIA_MOUNTED", Uri.parse("file://" + Environment.getExternalStorageDirectory())));

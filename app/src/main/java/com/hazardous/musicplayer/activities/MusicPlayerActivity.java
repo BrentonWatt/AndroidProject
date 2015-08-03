@@ -18,7 +18,6 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.hazardous.musicplayer.R;
-import com.hazardous.musicplayer.fragments.AudioDemo;
 import com.hazardous.musicplayer.fragments.songInfoDialogFragment;
 
 import butterknife.Bind;
@@ -40,14 +39,14 @@ public class MusicPlayerActivity extends AppCompatActivity implements MediaPlaye
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ButterKnife.bind(this);
         setContentView(R.layout.activity_music_player);
+        ButterKnife.bind(this);
 
        /* play = (ImageButton)findViewById(R.id.play);
         pause = (ImageButton)findViewById(R.id.pause);
         stop = (ImageButton)findViewById(R.id.stop);
         nextSong = (ImageButton)findViewById(R.id.nextSong);
-        previousSong = (ImageButton)findViewById(R.id.previousSong)*/;
+        previousSong = (ImageButton)findViewById(R.id.previousSong)*/
 
         /*play.setOnClickListener(new View.OnClickListener() {
             @Override

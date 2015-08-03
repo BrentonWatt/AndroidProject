@@ -16,7 +16,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".fragments.AudioDemo"
+            android:name=".activities.AudioDemo"
             android:icon="@android:drawable/ic_media_play"
             android:label="@string/title_activity_main"
             android:parentActivityName=".activities.MusicPlayerActivity"
@@ -26,6 +26,10 @@
             android:name=".activities.MusicPlayerActivity"
             android:label="@string/title_activity_music_player"
             android:launchMode="singleTop" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
         </activity>
 
@@ -67,10 +71,7 @@
         <activity
             android:name=".activities.MainActivity"
             android:label="@string/title_activity_main" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
 
     </application>

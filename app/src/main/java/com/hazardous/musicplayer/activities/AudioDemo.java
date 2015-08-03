@@ -1,4 +1,4 @@
-package com.hazardous.musicplayer.fragments;
+package com.hazardous.musicplayer.activities;
 
 import android.content.ContentResolver;
 import android.database.Cursor;
@@ -15,32 +15,33 @@ import com.hazardous.musicplayer.Songs;
 import com.hazardous.musicplayer.adapters.SongAdapter;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
 
 
 public class AudioDemo extends AppCompatActivity  {
 
 
     private ArrayList<Songs> songsList;
-    private ListView songsView;
+    @Bind(R.id.song_list) ListView songsView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.audio_demo);
-//        getActionBar().setDisplayHomeAsUpEnabled(true);
-        songsView = (ListView)findViewById(R.id.song_list);
+        ButterKnife.bind(this);
         songsList = new ArrayList<>();
         getSongList();
-        /*Collections.sort(songsList, new Comparator<Songs>() {
+        Collections.sort(songsList, new Comparator<Songs>() {
             public int compare(Songs a, Songs b) {
                 return a.getTitle().compareTo(b.getTitle());
             }
-        });*/
+        });
         SongAdapter songAdt = new SongAdapter(this, songsList);
         songsView.setAdapter(songAdt);
-
-
-
 
     }
 

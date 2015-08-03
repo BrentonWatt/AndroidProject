@@ -5,13 +5,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.hazardous.musicplayer.R;
 import com.hazardous.musicplayer.Songs;
 
 import java.util.ArrayList;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 /**
  * Created by Brenton on 6/24/2015.
  */
@@ -35,25 +38,38 @@ public class SongAdapter extends BaseAdapter
         return 0;
     }
 
-    public View getView(int pos, View convertView, ViewGroup parent)
+    public View getView(int pos, View view, ViewGroup parent)
     {
-        LinearLayout songLay = (LinearLayout)songInf.inflate(R.layout.songs, parent, false);
-        //get title and artist views
-        TextView songView = (TextView)songLay.findViewById(R.id.song_title);
-        TextView artistView = (TextView)songLay.findViewById(R.id.song_artist);
+        ViewHolder viewHolder;
+        if (view != null) {
+            viewHolder = (ViewHolder) view.getTag();
+        }
+        else {
+            view = songInf.inflate(R.layout.songs, parent, false);
+            viewHolder = new ViewHolder(view);
+        }
         //get song using position
         Songs currSong = songs.get(pos);
         //get title and artist strings
-        songView.setText(currSong.getTitle());
-        artistView.setText(currSong.getArtist());
+        viewHolder.song_title.setText(currSong.getTitle());
+        viewHolder.song_artist.setText(currSong.getArtist());
         //set position as tag
-        songLay.setTag(pos);
-        return songLay;
+        view.setTag(pos);
+        return view;
     }
 
     public SongAdapter(Context c, ArrayList<Songs> theSongs)
     {
         songs=theSongs;
         songInf=LayoutInflater.from(c);
+    }
+
+    static class ViewHolder{
+        @Bind(R.id.song_title) TextView song_title;
+        @Bind(R.id.song_artist) TextView song_artist;
+
+        public ViewHolder(View view) {
+            ButterKnife.bind(this, view);
+        }
     }
 }
