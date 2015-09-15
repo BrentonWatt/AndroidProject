@@ -27,6 +27,7 @@ public class AudioDemo extends AppCompatActivity  {
 
     private ArrayList<Songs> songsList;
     @Bind(R.id.song_list) ListView songsView;
+    Songs blank;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,16 +60,26 @@ public class AudioDemo extends AppCompatActivity  {
             int artistColumn = musicCursor.getColumnIndex
                     (android.provider.MediaStore.Audio.Media.ARTIST);
             //add songs to list
-            do
-            {
-                long thisId = musicCursor.getLong(idColumn);
-                String thisTitle = musicCursor.getString(titleColumn);
-                String thisArtist = musicCursor.getString(artistColumn);
-                songsList.add(new Songs(thisId, thisTitle, thisArtist));
+            if (musicCursor.moveToNext()){
+                do
+                {
+                    long thisId = musicCursor.getLong(idColumn);
+                    String thisTitle = musicCursor.getString(titleColumn);
+                    String thisArtist = musicCursor.getString(artistColumn);
+                    songsList.add(new Songs(thisId, thisTitle, thisArtist));
+                }
+                while (musicCursor.moveToNext());
             }
-            while (musicCursor.moveToNext());
+            else {
+                blank = new Songs(0, "No songs available on sdcard", "");
+                songsList.add(0,blank);
+            }
+
+
+            musicCursor.close();
         }
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

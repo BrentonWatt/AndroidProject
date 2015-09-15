@@ -15,14 +15,13 @@ import java.util.ArrayList;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-/**
- * Created by Brenton on 6/24/2015.
- */
+
 
 public class SongAdapter extends BaseAdapter
 {
     private ArrayList<Songs> songs;
     private LayoutInflater songInf;
+
     public int getCount()
     {
         return songs.size();
@@ -45,16 +44,15 @@ public class SongAdapter extends BaseAdapter
             viewHolder = (ViewHolder) view.getTag();
         }
         else {
-            view = songInf.inflate(R.layout.songs, parent, false);
+            view = songInf.inflate(R.layout.list_song_view, parent, false);
             viewHolder = new ViewHolder(view);
+            view.setTag(viewHolder);
         }
         //get song using position
         Songs currSong = songs.get(pos);
         //get title and artist strings
         viewHolder.song_title.setText(currSong.getTitle());
         viewHolder.song_artist.setText(currSong.getArtist());
-        //set position as tag
-        view.setTag(pos);
         return view;
     }
 
@@ -65,8 +63,8 @@ public class SongAdapter extends BaseAdapter
     }
 
     static class ViewHolder{
-        @Bind(R.id.song_title) TextView song_title;
-        @Bind(R.id.song_artist) TextView song_artist;
+        @Bind(R.id.list_songTitle) TextView song_title;
+        @Bind(R.id.list_songArtist) TextView song_artist;
 
         public ViewHolder(View view) {
             ButterKnife.bind(this, view);

@@ -42,52 +42,6 @@ public class MusicPlayerActivity extends AppCompatActivity implements MediaPlaye
         setContentView(R.layout.activity_music_player);
         ButterKnife.bind(this);
 
-       /* play = (ImageButton)findViewById(R.id.play);
-        pause = (ImageButton)findViewById(R.id.pause);
-        stop = (ImageButton)findViewById(R.id.stop);
-        nextSong = (ImageButton)findViewById(R.id.nextSong);
-        previousSong = (ImageButton)findViewById(R.id.previousSong)*/
-
-        /*play.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                play();
-                Log.d(TAG, "onClick - play method");
-            }
-        });
-
-        pause.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                pause();
-                Log.d(TAG, "onClick - pause method");
-            }
-        });
-
-        stop.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                stop();
-                Log.d(TAG, "onClick - stop method");
-            }
-        });
-
-        previousSong.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                previousSong();
-                Log.d(TAG, "onClick - previousSong method");
-            }
-        });
-
-        nextSong.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                nextSong();
-                Log.d(TAG, "onClick - nextSong method");
-            }
-        });*/
-
         setup();
     }
 

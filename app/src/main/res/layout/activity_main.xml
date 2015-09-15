@@ -56,16 +56,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="14dp"
-            android:src="@mipmap/ic_skip_previous_black"
-            android:padding="4dp"/>
+            android:padding="4dp"
+            style="@android:style/MediaButton.Previous"/>
 
         <ImageButton
             android:id="@+id/media_pause"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="14dp"
-            android:src="@mipmap/ic_pause_black"
-            android:padding="4dp"/>
+            android:padding="4dp"
+            style="@android:style/MediaButton.Play"/>
 
 
         <ImageButton
@@ -73,8 +73,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="14dp"
-            android:src="@mipmap/ic_skip_next_black"
-            android:padding="4dp"/>
+            android:padding="4dp"
+            style="@android:style/MediaButton.Next"/>
     </LinearLayout>
 
 </LinearLayout>
